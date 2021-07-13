@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta content="IE=edge" http-equiv="X-UA-Compatible" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Postboy 🚀👨‍🚀</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap"
+      rel="stylesheet"
+    />
+    <script defer src="./script.js" type="module"></script>
+    <style>
+      body,
+      div {
+        font-family: 'Roboto Mono', monospace;
+      }
+      [data-response-headers] {
+        display: grid;
+        grid-template-columns: auto 1fr;
+        gap: 1rem 2rem;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="p-4">
+      <form data-form>
+        <div class="input-group mb-4">
+          <select class="form-select flex-grow-0 w-auto" data-method>
+            <option selected value="GET">GET</option>
+            <option value="POST">POST</option>
+            <option value="PUT">PUT</option>
+            <option value="PATCH">PATCH</option>
+            <option value="DELETE">DELETE</option>
+          </select>
+          <input
+            class="form-control"
+            data-url
+            placeholder="https://example.com"
+            required
+            type="url"
+          />
+          <button class="btn btn-primary" type="submit">Send</button>
+        </div>
+
+        <ul class="nav nav-tabs" role="tablist">
+          <li class="nav-item" role="presentation">
+            <button
+              aria-controls="query-params"
+              aria-selected="true"
+              class="nav-link active"
+              data-bs-target="#query-params"
+              data-bs-toggle="tab"
+              id="query-params-tab"
+              role="tab"
+              type="button"
+            >
+              Query Params
+            </button>
+          </li>
+          <li class="nav-item" role="presentation">
+            <button
+              aria-controls="request-headers"
+              aria-selected="false"
+              class="nav-link"
+              data-bs-target="#request-headers"
+              data-bs-toggle="tab"
+              id="request-headers-tab"
+              role="tab"
+              type="button"
+            >
+              Headers
+            </button>
+          </li>
+          <li class="nav-item" role="presentation">
+            <button
+              aria-controls="json"
+              aria-selected="false"
+              class="nav-link"
+              data-bs-target="#json"
+              data-bs-toggle="tab"
+              id="json-tab"
+              role="tab"
+              type="button"
+            >
+              JSON
+            </button>
+          </li>
+        </ul>
+
+        <div class="tab-content p-3 border-top-0 border">
+          <div
+            aria-labelledby="query-params-tab"
+            class="tab-pane fade show active"
+            id="query-params"
+            role="tabpanel"
+          >
+            <div data-query-params></div>
+            <button
+              class="mt-2 btn btn-outline-success"
+              data-add-query-param-btn
+              type="button"
+            >
+              Add
+            </button>
+          </div>
+          <div
+            aria-labelledby="request-headers-tab"
+            class="tab-pane fade"
+            id="request-headers"
+            role="tabpanel"
+          >
+            <div data-request-headers></div>
+            <button
+              class="mt-2 btn btn-outline-success"
+              data-add-request-header-btn
+              type="button"
+            >
+              Add
+            </button>
+          </div>
+          <div aria-labelledby="json-tab" class="tab-pane fade" id="json" role="tabpanel">
+            <div
+              class="overflow-auto"
+              data-json-request-body
+              style="max-height: 200px"
+            ></div>
+          </div>
+        </div>
+      </form>
+
+      <div class="mt-5" data-response-section>
+        <h3>Response</h3>
+        <div class="d-flex my-2">
+          <div class="me-3">Status: <span data-status></span></div>
+          <div class="me-3">Time: <span data-time></span>ms</div>
+          <div class="me-3">Size: <span data-size></span></div>
+        </div>
+
+        <ul class="nav nav-tabs" role="tablist">
+          <li class="nav-item" role="presentation">
+            <button
+              aria-controls="body"
+              aria-selected="true"
+              class="nav-link active"
+              data-bs-target="#body"
+              data-bs-toggle="tab"
+              id="body-tab"
+              role="tab"
+              type="button"
+            >
+              Body
+            </button>
+          </li>
+          <li class="nav-item" role="presentation">
+            <button
+              aria-controls="response-headers"
+              aria-selected="false"
+              class="nav-link"
+              data-bs-target="#response-headers"
+              data-bs-toggle="tab"
+              id="response-headers-tab"
+              role="tab"
+              type="button"
+            >
+              Headers
+            </button>
+          </li>
+        </ul>
+
+        <div class="tab-content p-3 border-top-0 border">
+          <div
+            aria-labelledby="body-tab"
+            class="tab-pane fade show active"
+            id="body"
+            role="tabpanel"
+          >
+            <div
+              class="overflow-auto"
+              data-json-response-body
+              style="max-height: 200px"
+            ></div>
+          </div>
+          <div
+            aria-labelledby="response-headers-tab"
+            class="tab-pane fade"
+            id="response-headers"
+            role="tabpanel"
+          >
+            <div data-response-headers></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <template data-key-value-template>
+      <div class="input-group my-2" data-key-value-pair>
+        <input class="form-control" data-key placeholder="Key" type="text" />
+        <input class="form-control" data-value placeholder="Value" type="text" />
+        <button class="btn btn-outline-danger" data-remove-btn type="button">
+          Remove
+        </button>
+      </div>
+    </template>
+  </body>
+</html>

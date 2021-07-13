@@ -1,0 +1,20 @@
+{
+  "name": "postboy",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "snowpack dev"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.21.1",
+    "bootstrap": "^5.0.2",
+    "pretty-bytes": "^5.6.0"
+  },
+  "devDependencies": {
+    "snowpack": "^3.7.1"
+  }
+}
